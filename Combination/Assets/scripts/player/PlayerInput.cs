@@ -55,15 +55,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""shotAbility"",
-                    ""type"": ""Button"",
-                    ""id"": ""9977de96-b02e-4556-a66b-ee68ce90c3d9"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""health"",
                     ""type"": ""Button"",
                     ""id"": ""7dc20241-2d77-4c14-851b-ab404479f097"",
@@ -195,17 +186,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""6e4463f7-a412-4e32-a7d8-96716b84d4d5"",
-                    ""path"": ""<Keyboard>/q"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""shotAbility"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""efaa2509-fbef-4588-b54b-d8b4e9a65586"",
                     ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
@@ -275,7 +255,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Player_move = m_Player.FindAction("move", throwIfNotFound: true);
         m_Player_shot = m_Player.FindAction("shot", throwIfNotFound: true);
         m_Player_moveAbility = m_Player.FindAction("moveAbility", throwIfNotFound: true);
-        m_Player_shotAbility = m_Player.FindAction("shotAbility", throwIfNotFound: true);
         m_Player_health = m_Player.FindAction("health", throwIfNotFound: true);
         m_Player_mousePosition = m_Player.FindAction("mousePosition", throwIfNotFound: true);
     }
@@ -340,7 +319,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_move;
     private readonly InputAction m_Player_shot;
     private readonly InputAction m_Player_moveAbility;
-    private readonly InputAction m_Player_shotAbility;
     private readonly InputAction m_Player_health;
     private readonly InputAction m_Player_mousePosition;
     public struct PlayerActions
@@ -350,7 +328,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @move => m_Wrapper.m_Player_move;
         public InputAction @shot => m_Wrapper.m_Player_shot;
         public InputAction @moveAbility => m_Wrapper.m_Player_moveAbility;
-        public InputAction @shotAbility => m_Wrapper.m_Player_shotAbility;
         public InputAction @health => m_Wrapper.m_Player_health;
         public InputAction @mousePosition => m_Wrapper.m_Player_mousePosition;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -371,9 +348,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @moveAbility.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveAbility;
                 @moveAbility.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveAbility;
                 @moveAbility.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMoveAbility;
-                @shotAbility.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShotAbility;
-                @shotAbility.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShotAbility;
-                @shotAbility.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShotAbility;
                 @health.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHealth;
                 @health.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHealth;
                 @health.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHealth;
@@ -393,9 +367,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @moveAbility.started += instance.OnMoveAbility;
                 @moveAbility.performed += instance.OnMoveAbility;
                 @moveAbility.canceled += instance.OnMoveAbility;
-                @shotAbility.started += instance.OnShotAbility;
-                @shotAbility.performed += instance.OnShotAbility;
-                @shotAbility.canceled += instance.OnShotAbility;
                 @health.started += instance.OnHealth;
                 @health.performed += instance.OnHealth;
                 @health.canceled += instance.OnHealth;
@@ -420,7 +391,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnShot(InputAction.CallbackContext context);
         void OnMoveAbility(InputAction.CallbackContext context);
-        void OnShotAbility(InputAction.CallbackContext context);
         void OnHealth(InputAction.CallbackContext context);
         void OnMousePosition(InputAction.CallbackContext context);
     }

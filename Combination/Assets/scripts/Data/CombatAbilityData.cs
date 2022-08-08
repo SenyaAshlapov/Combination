@@ -1,8 +1,9 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "CombatAbilityData", menuName = "Combination/CombatAbilityData", order = 0)]
-public class CombatAbilityData : ScriptableObject 
+public class CombatAbilityData : ScriptableObject
 {
     public float CoolDown;
     public GameObject WingsPrefab;
@@ -13,12 +14,23 @@ public class CombatAbilityData : ScriptableObject
     [TextArea]
     public string Description;
 
-    public void RenderCombatAbility(Transform renderPosition){
-        foreach(Transform child in renderPosition){
+    private bool _isCanShot = true;
+
+    public void RenderCombatAbility(Transform renderPosition)
+    {
+        foreach (Transform child in renderPosition)
+        {
             Destroy(child.gameObject);
         }
         Instantiate(WingsPrefab, renderPosition);
     }
+
+    public virtual void ActivateCombatAbility(Transform shotTransform)
+    {
+        Instantiate(DamagerPrefab, shotTransform.position, shotTransform.rotation);
+    }
+
+
 
 
 }

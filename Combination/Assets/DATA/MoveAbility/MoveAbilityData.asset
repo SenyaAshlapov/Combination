@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7796b56b079edba4ba8d95a6a9988f46, type: 3}
+  m_Script: {fileID: 11500000, guid: f13deb166d3c88d44beac0aa7a3884d7, type: 3}
   m_Name: MoveAbilityData
   m_EditorClassIdentifier: 
-  CoolDown: 0
-  EnginePrefab: {fileID: 0}
-  Ability: {fileID: 0}
+  CoolDown: 1
+  EnginePrefab: {fileID: 3204891946968829600, guid: 49fd7341b1097494bb4c5e4bbe2c4bd2,
+    type: 3}
   Speed: 0
   Icon: {fileID: 0}
   Color:

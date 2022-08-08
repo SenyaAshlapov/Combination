@@ -6,7 +6,6 @@ public class MoveAbilityData : ScriptableObject
 {
     public float CoolDown;
     public GameObject EnginePrefab;
-    public MoveAbility Ability;
     public float Speed;
     public Sprite Icon;
     public Color32 Color;
@@ -20,7 +19,7 @@ public class MoveAbilityData : ScriptableObject
         Instantiate(EnginePrefab, renderPosition);
     }
 
-    public virtual void Activate(){
+    public virtual void ActivateMoveAbility(Transform playerTransform){
 
     }
 

@@ -33,15 +33,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "shotAbility",
-                    "type": "Button",
-                    "id": "9977de96-b02e-4556-a66b-ee68ce90c3d9",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "health",
                     "type": "Button",
                     "id": "7dc20241-2d77-4c14-851b-ab404479f097",
@@ -170,17 +161,6 @@
                     "action": "move",
                     "isComposite": false,
                     "isPartOfComposite": true
-                },
-                {
-                    "name": "",
-                    "id": "6e4463f7-a412-4e32-a7d8-96716b84d4d5",
-                    "path": "<Keyboard>/q",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "shotAbility",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 },
                 {
                     "name": "",
