@@ -4,15 +4,41 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private PlayerInput _playerInput;
+    [SerializeField]private Transform _playerTransform;
+    private LayerMask _playerMask;
+    private Vector2 _moveDirection;
+    private Vector2 _mousePosition;
+
+    [SerializeField]private float _moveSpeed;
+    [SerializeField]private LayerMask _layerMask;
+
+    [SerializeField]private MoveAbilityData _moveAbility;
+
+    private PlayerMove _playerMove = new PlayerMove();
+    private void Awake()
     {
-        
+        _playerInput = new PlayerInput();
+        _playerMove.InitPlayerMove(
+            _playerInput,
+            _playerTransform,
+            _layerMask,
+            _moveSpeed);
+ 
     }
 
-    // Update is called once per frame
-    void Update()
+        private void OnEnable()
     {
-        
+        _playerInput.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _playerInput.Disable();
+    }
+
+    private void FixedUpdate() {
+        _playerMove.Move();
+        _playerMove.Rotate();
     }
 }
