@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
     private MoveAbilityData _currentMoveAbility;
     private CombatAbilityData _currntCombatAbility;
 
+    [SerializeField]private float _health;
+
 
 
     private PlayerMove _playerMove = new PlayerMove();
@@ -67,6 +69,12 @@ public class Player : MonoBehaviour
 
     #endregion
 
+    public void GetDamage(float damage)
+    {
+        _health -= damage;
+        Debug.Log(_health);
+    }
+
     #region init_abilities
     private void initCombatAbility(CombatAbilityData newCombatAbility){
         newCombatAbility.RenderCombatAbility(_combatAbilityTransform);
@@ -80,6 +88,7 @@ public class Player : MonoBehaviour
 
     #endregion
 
+    #region  abilities
     private void castAttackAbility()
     {
         if(_isCanCombatAbility == true)
@@ -111,4 +120,6 @@ public class Player : MonoBehaviour
         _isCanMoveAbility = true;
         yield return null;
     }
+
+    #endregion
 }
