@@ -374,10 +374,16 @@
 "Assets/scripts/Data/CombatAbilityData.cs"
 "Assets/scripts/Data/MoveAbilityData.cs"
 "Assets/scripts/enemy/Enemy.cs"
+"Assets/scripts/enemy/EnemyAttack.cs"
+"Assets/scripts/enemy/IStateMachine.cs"
+"Assets/scripts/enemy/states/enemyAttackState.cs"
+"Assets/scripts/enemy/states/enemyFollowState.cs"
+"Assets/scripts/enemy/states/enemyIdleState.cs"
 "Assets/scripts/MoveAbilities/MoveAbility1.cs"
 "Assets/scripts/player/Player.cs"
 "Assets/scripts/player/PlayerInput.cs"
 "Assets/scripts/player/PlayerMove.cs"
+"Assets/scripts/player/PlayerSingoltone.cs"
 "Assets/TutorialInfo/Scripts/Readme.cs"
 -langversion:9.0
 

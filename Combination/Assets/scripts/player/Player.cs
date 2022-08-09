@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 
     private PlayerInput _playerInput;
     [SerializeField]private Transform _playerTransform;
+    [HideInInspector]public Transform PlayerPosition => _playerTransform;
     [SerializeField]private Transform _shotPoint;
     [SerializeField]private Transform _moveAbilityTransform;
     [SerializeField]private Transform _combatAbilityTransform;
@@ -43,6 +44,8 @@ public class Player : MonoBehaviour
 
         _playerInput.Player.shot.performed += context => castAttackAbility();
         _playerInput.Player.moveAbility.performed += context => castMoveAbility();
+
+        PlayerSingoltone.SingoltonePlayer.SetPlayer(this);
  
     }
 
