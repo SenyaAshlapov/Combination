@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public delegate void playerAction();
+    public static playerAction PlayerDying;
     [SerializeField]private MoveAbilityData _startMoveAbility;
     [SerializeField]private CombatAbilityData _startCombatAbility;
 
@@ -23,6 +25,7 @@ public class Player : MonoBehaviour
     private CombatAbilityData _currntCombatAbility;
 
     [SerializeField]private float _health;
+    private bool _isAlive = true;
 
 
 
@@ -63,8 +66,12 @@ public class Player : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        _playerMove.Move();
-        _playerMove.Rotate();
+        if(_isAlive == true)
+        {
+            _playerMove.Move();
+            _playerMove.Rotate();
+        }
+        
     }
 
     #endregion
@@ -72,7 +79,10 @@ public class Player : MonoBehaviour
     public void GetDamage(float damage)
     {
         _health -= damage;
-        Debug.Log(_health);
+        if(_health <= 0){
+            _isAlive = false;
+            PlayerDying?.Invoke();
+        }
     }
 
     #region init_abilities

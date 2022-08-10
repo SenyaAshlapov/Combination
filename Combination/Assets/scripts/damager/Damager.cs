@@ -32,9 +32,10 @@ public class Damager : MonoBehaviour
                 other.gameObject.GetComponent<Enemy>().GetDamage(_damage);
                 
                 if(_isExplosion == true)
-                    Instantiate(_explosionParticle, transform.position, transform.rotation);
+                    
                     explode();
 
+                Instantiate(_explosionParticle, transform.position, transform.rotation);
                 Destroy(this.gameObject);
             }
         }   
@@ -46,9 +47,10 @@ public class Damager : MonoBehaviour
                 other.gameObject.GetComponent<Player>().GetDamage(_damage);
 
                 if(_isExplosion == true)
-                    Instantiate(_explosionParticle, transform.position, transform.rotation);
+                    
                     explode();
-
+                    
+                Instantiate(_explosionParticle, transform.position, transform.rotation);
                 Destroy(this.gameObject);
             }
         }      

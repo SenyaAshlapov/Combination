@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MoveAbilityData
   m_EditorClassIdentifier: 
   CoolDown: 1
-  EnginePrefab: {fileID: 3204891946968829600, guid: 49fd7341b1097494bb4c5e4bbe2c4bd2,
+  EnginePrefab: {fileID: 2822009236638330050, guid: 5be53e2cc9e381049b08bffad7c2db0a,
     type: 3}
   Speed: 0
   Icon: {fileID: 0}

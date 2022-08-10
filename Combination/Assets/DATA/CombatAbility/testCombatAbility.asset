@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: testCombatAbility
   m_EditorClassIdentifier: 
   CoolDown: 0.5
-  WingsPrefab: {fileID: 6558048469676432597, guid: 3bad95d38d9ff9e4c94291a0ab3bf55a,
+  WingsPrefab: {fileID: 7298642756745019955, guid: aaba660afef6e9042985e9abb628c3cc,
     type: 3}
   DamagerPrefab: {fileID: 4434871445889909555, guid: 91f732fe50cb3be42b748fc829cdcdbd,
     type: 3}

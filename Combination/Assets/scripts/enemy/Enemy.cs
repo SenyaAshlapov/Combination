@@ -3,7 +3,8 @@ using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
-
+    public delegate void enemyAction();
+    public static enemyAction EnemyDying;
     #region movment_fields
     [Header("Movment")]
     [SerializeField] private NavMeshAgent _navMeshAgent;
@@ -13,9 +14,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject _moveParticle;
     #endregion
     [Space(15f)]
-    #region attack_fields
-    [Header("Attack")]
+    #region combat_fields
+    [Header("Combat")]
     [SerializeField] private GameObject _damager;
+    [SerializeField] private GameObject _deadPyrticle;
     [SerializeField] private Transform _shotPoint;
     [SerializeField] private float _health;
     [SerializeField] private float _coolDown;
@@ -35,6 +37,16 @@ public class Enemy : MonoBehaviour
     #endregion
 
     private Player _player;
+
+    private void Awake()
+    {
+        Player.PlayerDying += destroyEnemy;
+    }
+
+    private void OnDestroy()
+    {
+        Player.PlayerDying -= destroyEnemy;
+    }
     private void Start()
     {
         setPlayer();
@@ -78,7 +90,9 @@ public class Enemy : MonoBehaviour
 
     private void dyingEnemy()
     {
-        Destroy(this.gameObject);
+        EnemyDying?.Invoke();
+        destroyEnemy();
+
     }
 
     private void setPlayer()
@@ -92,18 +106,15 @@ public class Enemy : MonoBehaviour
         if (distantion >= _lookRadius)
         {
             changeState(_idleState);
-            //_currentState = _idleState;
         }
 
         if (distantion < _lookRadius && distantion > _navMeshAgent.stoppingDistance)
         {
             changeState(_followState);
-            //_currentState = _followState;
         }
         if (distantion <= _navMeshAgent.stoppingDistance)
         {
             changeState(_attackState);
-            //_currentState = _attackState;
         }
     }
 
@@ -119,8 +130,8 @@ public class Enemy : MonoBehaviour
 
     private void changeState(IStateMachine newState)
     {
-        
-        if(_currentState != newState)
+
+        if (_currentState != newState)
         {
             if (_currentState != null)
                 _currentState.ExitState();
@@ -129,5 +140,11 @@ public class Enemy : MonoBehaviour
             _currentState = newState;
         }
 
+    }
+
+    private void destroyEnemy()
+    {
+        Instantiate(_deadPyrticle, transform.position, transform.rotation);
+        Destroy(this.gameObject);
     }
 }

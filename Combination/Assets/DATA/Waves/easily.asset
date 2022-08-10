@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1410cfd47efc4cb49afc5eea183c3f3d, type: 3}
+  m_Name: easily
+  m_EditorClassIdentifier: 
+  Difficulty: Easely
+  WaveList:
+  - Count: 5
+    Enemies:
+    - {fileID: 3728275268360871155, guid: 81e15a7943105b340a7bf061ec78b157, type: 3}
+  - Count: 12
+    Enemies:
+    - {fileID: 3728275268360871155, guid: 81e15a7943105b340a7bf061ec78b157, type: 3}
+    - {fileID: 4240867723988390537, guid: 3ad1244c7a80f7b43b487698c8f091a1, type: 3}
+  - Count: 16
+    Enemies:
+    - {fileID: 3728275268360871155, guid: 81e15a7943105b340a7bf061ec78b157, type: 3}
+    - {fileID: 4240867723988390537, guid: 3ad1244c7a80f7b43b487698c8f091a1, type: 3}
+    - {fileID: 7700045325869565512, guid: 8e3f6108c01f0f14086ebdb472994aa1, type: 3}
+  - Count: 20
+    Enemies:
+    - {fileID: 3728275268360871155, guid: 81e15a7943105b340a7bf061ec78b157, type: 3}
+    - {fileID: 4240867723988390537, guid: 3ad1244c7a80f7b43b487698c8f091a1, type: 3}
+    - {fileID: 7700045325869565512, guid: 8e3f6108c01f0f14086ebdb472994aa1, type: 3}
+    - {fileID: 3863927517466685127, guid: 3cf923e0039cb3c48b96f61efd359403, type: 3}

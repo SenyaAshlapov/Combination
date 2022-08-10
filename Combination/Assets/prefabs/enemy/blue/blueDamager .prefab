@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _type: 0
-  _speed: 9
+  _speed: 11
   _damage: 14
   _damagerRigidbody: {fileID: 4434871445889909552}
   _isExplosion: 1

@@ -90,6 +90,8 @@ MonoBehaviour:
   _moveParticle: {fileID: 5937729378476098479}
   _damager: {fileID: 4434871445889909555, guid: 6b0a8dc8ea44178488fdc6e95951dcb9,
     type: 3}
+  _deadPyrticle: {fileID: 1667076525750175636, guid: 635ea1da06987a2409d88b046f04fb15,
+    type: 3}
   _shotPoint: {fileID: 733947992020912324}
   _health: 30
   _coolDown: 1
@@ -120,8 +122,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.6026213, y: 0.4687598, z: 3.0657005}
-  m_Center: {x: -0.012291074, y: -0.018978287, z: -0.18546104}
+  m_Size: {x: 2.6026213, y: 0.84909546, z: 3.0657005}
+  m_Center: {x: -0.012291074, y: 0.04735915, z: -0.18546104}
 --- !u!195 &3728275268360870924
 NavMeshAgent:
   m_ObjectHideFlags: 0

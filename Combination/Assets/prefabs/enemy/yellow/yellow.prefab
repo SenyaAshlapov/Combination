@@ -59,6 +59,8 @@ MonoBehaviour:
   _moveParticle: {fileID: 5766018145547096343}
   _damager: {fileID: 4434871445889909555, guid: 88e800aaf83cbb7479c349935c3973f5,
     type: 3}
+  _deadPyrticle: {fileID: 1667076525750175636, guid: b8b16587652647c43b521d00452551f8,
+    type: 3}
   _shotPoint: {fileID: 5766018145910083690}
   _health: 25
   _coolDown: 2
