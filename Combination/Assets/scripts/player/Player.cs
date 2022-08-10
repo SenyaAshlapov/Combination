@@ -22,10 +22,10 @@ public class Player : MonoBehaviour
     [SerializeField]private float _moveSpeed;
     [SerializeField]private LayerMask _layerMask;
     private MoveAbilityData _currentMoveAbility;
-    private CombatAbilityData _currntCombatAbility;
+    private CombatAbilityData _currentCombatAbility;
 
     [SerializeField]private float _health;
-    private bool _isAlive = true;
+    private bool _isCanMove = true;
 
 
 
@@ -51,7 +51,16 @@ public class Player : MonoBehaviour
         _playerInput.Player.moveAbility.performed += context => castMoveAbility();
 
         PlayerSingoltone.SingoltonePlayer.SetPlayer(this);
+
+        AbilityStore.UpdateCombatAbility += initCombatAbility;
+        AbilityStore.UpdateMoveAbility += iniMoveAbility;
  
+    }
+
+    private void OnDestroy() 
+    {
+        AbilityStore.UpdateCombatAbility -= initCombatAbility;
+        AbilityStore.UpdateMoveAbility -= iniMoveAbility;
     }
 
 
@@ -66,7 +75,7 @@ public class Player : MonoBehaviour
     }
 
     private void FixedUpdate() {
-        if(_isAlive == true)
+        if(_isCanMove == true)
         {
             _playerMove.Move();
             _playerMove.Rotate();
@@ -80,7 +89,7 @@ public class Player : MonoBehaviour
     {
         _health -= damage;
         if(_health <= 0){
-            _isAlive = false;
+            _isCanMove = false;
             PlayerDying?.Invoke();
         }
     }
@@ -88,12 +97,16 @@ public class Player : MonoBehaviour
     #region init_abilities
     private void initCombatAbility(CombatAbilityData newCombatAbility){
         newCombatAbility.RenderCombatAbility(_combatAbilityTransform);
-        _currntCombatAbility = newCombatAbility;
+        _currentCombatAbility = newCombatAbility;
+        _currentCombatAbility.updateCombatUI();
+        Debug.Log("Player");
+        
     }
 
     private void iniMoveAbility(MoveAbilityData newMoveAbility){
         newMoveAbility.RenderMoveAbility(_moveAbilityTransform);
         _currentMoveAbility = newMoveAbility;
+        _currentMoveAbility.updateMovetUI();
     }
 
     #endregion
@@ -102,7 +115,7 @@ public class Player : MonoBehaviour
     private void castAttackAbility()
     {
         if(_isCanCombatAbility == true)
-            StartCoroutine(IEcombatAbility(_currntCombatAbility, _shotPoint));
+            StartCoroutine(IEcombatAbility(_currentCombatAbility, _shotPoint));
     }
 
     private IEnumerator IEcombatAbility(CombatAbilityData ability, Transform shotPoint)

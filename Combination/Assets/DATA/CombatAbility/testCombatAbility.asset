@@ -17,8 +17,8 @@ MonoBehaviour:
     type: 3}
   DamagerPrefab: {fileID: 4434871445889909555, guid: 91f732fe50cb3be42b748fc829cdcdbd,
     type: 3}
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: c35174c8ca2f48648b1721d8be215f6e, type: 3}
   Color:
     serializedVersion: 2
-    rgba: 4281348334
-  Description: 
+    rgba: 4278208743
+  Description: i7irulkryulyrulryl

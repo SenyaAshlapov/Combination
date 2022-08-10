@@ -15,9 +15,9 @@ MonoBehaviour:
   CoolDown: 1
   EnginePrefab: {fileID: 2822009236638330050, guid: 5be53e2cc9e381049b08bffad7c2db0a,
     type: 3}
-  Speed: 0
-  Icon: {fileID: 0}
+  Speed: 1
+  Icon: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   Color:
     serializedVersion: 2
-    rgba: 0
-  Description: 
+    rgba: 4293678798
+  Description: krukfkhfj,mfyl,

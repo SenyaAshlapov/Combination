@@ -387,6 +387,9 @@
 "Assets/scripts/player/PlayerInput.cs"
 "Assets/scripts/player/PlayerMove.cs"
 "Assets/scripts/player/PlayerSingoltone.cs"
+"Assets/scripts/UI/AbilityCell.cs"
+"Assets/scripts/UI/AbilityStore.cs"
+"Assets/scripts/UI/HUD.cs"
 "Assets/TutorialInfo/Scripts/Readme.cs"
 -langversion:9.0
 

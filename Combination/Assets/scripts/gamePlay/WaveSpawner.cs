@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
-
+    public delegate void WaveAction();
+    public static WaveAction WaveStart;
+    public static WaveAction WaveEnd;
     [SerializeField] private WaveSpawnData _curentWaveData;
     [SerializeField] private WaveSpawnData _testWaveData;
 
@@ -12,10 +14,10 @@ public class WaveSpawner : MonoBehaviour
 
     [SerializeField] private float _restTime;
     private int _waveID = 0;
-    [SerializeField]private int _enemyPool;
+    [SerializeField] private int _enemyPool;
 
-    [SerializeField]private int _score  = 0;
-    [SerializeField]private float _spawnRange;
+    [SerializeField] private int _score = 0;
+    [SerializeField] private float _spawnRange;
     private void Start()
     {
         GetWaveData(_testWaveData);
@@ -51,13 +53,13 @@ public class WaveSpawner : MonoBehaviour
 
     private void removeEnemy()
     {
-       _score += 1;
+        _score += 1;
 
 
         if (_score <= (_enemyPool - _enemySpawnPoints.Count))
             spawnNewEnemy();
 
-        else if ( _score == _enemyPool)
+        if (_score == _enemyPool)
         {
             updateWave();
         }
@@ -75,7 +77,7 @@ public class WaveSpawner : MonoBehaviour
 
         int randomSpawnPoint = Random.Range(0, _enemySpawnPoints.Count);
 
-        
+
         Vector3 randomSpawn = new Vector3(Random.Range(0, _spawnRange), 0, Random.Range(0, _spawnRange));
 
         Debug.Log(randomSpawnPoint);
@@ -93,11 +95,15 @@ public class WaveSpawner : MonoBehaviour
 
     private IEnumerator IEupdateSpawner()
     {
+        WaveEnd?.Invoke();
         _waveID += 1;
-        Debug.Log("update");
+
         yield return new WaitForSeconds(_restTime);
+
         _score = 0;
+        WaveStart?.Invoke();
         startWave();
+
         yield return null;
     }
 

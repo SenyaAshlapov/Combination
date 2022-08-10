@@ -5,6 +5,8 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "CombatAbilityData", menuName = "Combination/CombatAbilityData", order = 0)]
 public class CombatAbilityData : ScriptableObject
 {
+    public delegate void combatAbilityAction(Sprite sprite, Color32 color);
+    public static combatAbilityAction UpdateCombatAbilityUI;
     public float CoolDown;
     public GameObject WingsPrefab;
     public GameObject DamagerPrefab;
@@ -28,6 +30,13 @@ public class CombatAbilityData : ScriptableObject
     public virtual void ActivateCombatAbility(Transform shotTransform)
     {
         Instantiate(DamagerPrefab, shotTransform.position, shotTransform.rotation);
+    }
+
+    public void updateCombatUI()
+    {
+        
+        UpdateCombatAbilityUI?.Invoke(Icon, Color);
+        Debug.Log("Data");
     }
 
 
