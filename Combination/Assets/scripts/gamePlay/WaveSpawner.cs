@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
+    public delegate void WaveFloatAction(float value);
+    public static WaveFloatAction ActivateTimer;
     public delegate void WaveAction();
     public static WaveAction WaveStart;
     public static WaveAction WaveEnd;
@@ -95,6 +97,7 @@ public class WaveSpawner : MonoBehaviour
 
     private IEnumerator IEupdateSpawner()
     {
+        ActivateTimer?.Invoke(_restTime);
         WaveEnd?.Invoke();
         _waveID += 1;
 

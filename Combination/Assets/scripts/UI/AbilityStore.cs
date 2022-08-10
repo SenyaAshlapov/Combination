@@ -15,6 +15,9 @@ public class AbilityStore : MonoBehaviour
     public delegate void StoreCombatAction(CombatAbilityData data);
     public static StoreCombatAction UpdateCombatAbility;
 
+    public delegate void StoreAction(bool value);
+    public static StoreAction  PlayerLockMovment;
+
     [SerializeField] private List<MoveAbilityData> _moveAbilityList = new List<MoveAbilityData>();
     [SerializeField] private List<CombatAbilityData> _combatAbilityList = new List<CombatAbilityData>();
 
@@ -36,6 +39,8 @@ public class AbilityStore : MonoBehaviour
     }
     private void generateAbilitis()
     {
+        PlayerLockMovment?.Invoke(false);
+
         _abilityCellCombat.gameObject.SetActive(true);
         _abilityCellMove.gameObject.SetActive(true);
         _abilityCellRandom.gameObject.SetActive(true);
@@ -107,19 +112,22 @@ public class AbilityStore : MonoBehaviour
         {
             updateNewMoveAbility(_randomMoveAbility);
         }
+        PlayerLockMovment?.Invoke(true);
 
         hideAll();
     }
     public void SelectNewMoveAbility()
     {
         updateNewMoveAbility(_moveAbility);
+        PlayerLockMovment?.Invoke(true);
 
         hideAll();
     }
     public void SelectNewCombatAbility()
     {
         updateNewCombatAbility(_combatAbility);
-
+        PlayerLockMovment?.Invoke(true);
+        
         hideAll();
     }
 

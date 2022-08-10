@@ -54,6 +54,7 @@ public class Player : MonoBehaviour
 
         AbilityStore.UpdateCombatAbility += initCombatAbility;
         AbilityStore.UpdateMoveAbility += iniMoveAbility;
+        AbilityStore.PlayerLockMovment += lockMove;
  
     }
 
@@ -145,4 +146,8 @@ public class Player : MonoBehaviour
     }
 
     #endregion
+
+    private void lockMove(bool lockValue) => _isCanMove = lockValue;
+    
 }
+    
