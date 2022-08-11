@@ -10,7 +10,7 @@ public class WaveSpawner : MonoBehaviour
     public static WaveAction WaveStart;
     public static WaveAction WaveEnd;
     [SerializeField] private WaveSpawnData _curentWaveData;
-    [SerializeField] private WaveSpawnData _testWaveData;
+    [SerializeField] private List<WaveSpawnData> _wavesDataList = new List<WaveSpawnData>();
 
     [SerializeField] private List<Transform> _enemySpawnPoints = new List<Transform>();
 
@@ -20,9 +20,12 @@ public class WaveSpawner : MonoBehaviour
 
     [SerializeField] private int _score = 0;
     [SerializeField] private float _spawnRange;
+
+    private SavesManager _savesManager = new SavesManager();
     private void Start()
     {
-        GetWaveData(_testWaveData);
+        loadDifficulty();
+        GetWaveData(_curentWaveData);
     }
 
     private void Awake()
@@ -86,6 +89,16 @@ public class WaveSpawner : MonoBehaviour
             _curentWaveData.WaveList[_waveID].Enemies[randomEnemy],
             _enemySpawnPoints[randomSpawnPoint].position + randomSpawn,
             _enemySpawnPoints[randomSpawnPoint].rotation);
+    }
+
+    private void loadDifficulty(){
+        string difficulty = _savesManager.LoadDifficulty();
+
+        foreach(WaveSpawnData data in _wavesDataList){
+            if(data.Difficulty == difficulty){
+                _curentWaveData = data;
+            }
+        }
     }
 
     private void updateWave()

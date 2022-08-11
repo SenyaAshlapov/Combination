@@ -4940,6 +4940,7 @@ GameObject:
   - component: {fileID: 7700045325869565514}
   - component: {fileID: 7700045325869565517}
   - component: {fileID: 7700045325869565513}
+  - component: {fileID: -4999655453579070571}
   m_Layer: 0
   m_Name: green
   m_TagString: Untagged
@@ -4981,7 +4982,7 @@ MonoBehaviour:
   _navMeshAgent: {fileID: 7700045325869565517}
   _enemyPosition: {fileID: 7700045325869565516}
   _speed: 10
-  _lookRadius: 35.2
+  _lookRadius: 90
   _moveParticle: {fileID: 2851618504597069611}
   _damager: {fileID: 8834788285845136298, guid: 8f3f18f8b3fb80a40b3cfdf892e9bdbf,
     type: 3}
@@ -5038,7 +5039,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!65 &7700045325869565513
@@ -5054,6 +5055,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.9672018, y: 0.40125564, z: 0.58036715}
   m_Center: {x: -0.0332631, y: 0.00767614, z: -0.20981638}
+--- !u!54 &-4999655453579070571
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7032334267840240886}
+  serializedVersion: 2
+  m_Mass: 20
+  m_Drag: 8
+  m_AngularDrag: 50
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 84
+  m_CollisionDetection: 0
 --- !u!1 &7411469903705904067
 GameObject:
   m_ObjectHideFlags: 0

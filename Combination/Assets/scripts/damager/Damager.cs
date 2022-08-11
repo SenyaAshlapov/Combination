@@ -17,6 +17,7 @@ public class Damager : MonoBehaviour
     [SerializeField]private bool _isExplosion;
     [SerializeField]private float _explosionForce;
     [SerializeField]private float _explosionRadius;
+    [SerializeField]private GameObject _destroyParticle;
     [SerializeField]private GameObject _explosionParticle;
 
     private void FixedUpdate() {
@@ -32,7 +33,7 @@ public class Damager : MonoBehaviour
                 other.gameObject.GetComponent<Enemy>().GetDamage(_damage);
                 
                 if(_isExplosion == true)
-                    
+                    Instantiate(_explosionParticle, transform.position, transform.rotation);
                     explode();               
             }
         }   
@@ -44,11 +45,11 @@ public class Damager : MonoBehaviour
                 other.gameObject.GetComponent<Player>().GetDamage(_damage);
 
                 if(_isExplosion == true)
-                    
+                    Instantiate(_explosionParticle, transform.position, transform.rotation);
                     explode();              
             }
         } 
-        Instantiate(_explosionParticle, transform.position, transform.rotation);
+        Instantiate(_destroyParticle, transform.position, transform.rotation);
         Destroy(this.gameObject);   
 
          
@@ -65,6 +66,6 @@ public class Damager : MonoBehaviour
             }
         }
 
-        Debug.Log("explode");
+        
     }
 }

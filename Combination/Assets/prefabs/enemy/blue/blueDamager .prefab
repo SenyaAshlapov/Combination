@@ -66,9 +66,11 @@ MonoBehaviour:
   _damage: 14
   _damagerRigidbody: {fileID: 4434871445889909552}
   _isExplosion: 1
-  _explosionForce: 1000
+  _explosionForce: 20000
   _explosionRadius: 1
-  _explosionParticle: {fileID: 1667076525750175636, guid: 4c9e4cf24508c414ca6c1b6823425d21,
+  _destroyParticle: {fileID: 1667076525750175636, guid: 4c9e4cf24508c414ca6c1b6823425d21,
+    type: 3}
+  _explosionParticle: {fileID: 1667076525750175636, guid: c0177eb5a4c747a43bfbd666b164c97f,
     type: 3}
 --- !u!54 &4434871445889909552
 Rigidbody:
@@ -80,11 +82,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 100
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!1 &5441530580875753222
 GameObject:

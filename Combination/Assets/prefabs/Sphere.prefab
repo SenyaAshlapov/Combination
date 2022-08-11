@@ -115,10 +115,12 @@ MonoBehaviour:
   _speed: 14
   _damage: 14
   _damagerRigidbody: {fileID: 4434871445889909552}
-  _isExplosion: 0
-  _explosionForce: 0
-  _explosionRadius: 0
-  _explosionParticle: {fileID: 1667076525750175636, guid: 4c9e4cf24508c414ca6c1b6823425d21,
+  _isExplosion: 1
+  _explosionForce: 20000
+  _explosionRadius: 5
+  _destroyParticle: {fileID: 1667076525750175636, guid: 4c9e4cf24508c414ca6c1b6823425d21,
+    type: 3}
+  _explosionParticle: {fileID: 1667076525750175636, guid: c0177eb5a4c747a43bfbd666b164c97f,
     type: 3}
 --- !u!54 &4434871445889909552
 Rigidbody:
