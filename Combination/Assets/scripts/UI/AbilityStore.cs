@@ -52,7 +52,7 @@ public class AbilityStore : MonoBehaviour
         _abilityCellCombat.InitAbilityCell(_combatAbility.Icon, _combatAbility.Description, _combatAbility.Color);
 
 
-        int randomCell = Random.Range(0, 1);
+        int randomCell = Random.Range(0, 2);
 
         if (randomCell == 1)
         {
@@ -83,7 +83,6 @@ public class AbilityStore : MonoBehaviour
     private MoveAbilityData generateMoveAbility()
     {
         int size = _moveAbilityList.Count;
-        Debug.Log(size);
 
         var randomMoveAbility = _moveAbilityList[Random.Range(0, size)];
 
@@ -93,7 +92,6 @@ public class AbilityStore : MonoBehaviour
     private CombatAbilityData generateCombatAbility()
     {
         int size = _combatAbilityList.Count;
-        Debug.Log(size);
 
         var randomCombatAbility = _combatAbilityList[Random.Range(0, size)];
 

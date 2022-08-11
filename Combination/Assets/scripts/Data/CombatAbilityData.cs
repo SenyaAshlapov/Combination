@@ -33,10 +33,8 @@ public class CombatAbilityData : ScriptableObject
     }
 
     public void updateCombatUI()
-    {
-        
+    {        
         UpdateCombatAbilityUI?.Invoke(Icon, Color);
-        Debug.Log("Data");
     }
 
 

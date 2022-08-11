@@ -5,26 +5,30 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public delegate void playerAction();
+    public delegate void playerFloatAction(float value);
     public static playerAction PlayerDying;
-    [SerializeField]private MoveAbilityData _startMoveAbility;
-    [SerializeField]private CombatAbilityData _startCombatAbility;
+    public static playerFloatAction UpdateHealthBar;
+    [SerializeField] private MoveAbilityData _startMoveAbility;
+    [SerializeField] private CombatAbilityData _startCombatAbility;
 
     private PlayerInput _playerInput;
-    [SerializeField]private Transform _playerTransform;
-    [HideInInspector]public Transform PlayerPosition => _playerTransform;
-    [SerializeField]private Transform _shotPoint;
-    [SerializeField]private Transform _moveAbilityTransform;
-    [SerializeField]private Transform _combatAbilityTransform;
+    [SerializeField] private Transform _playerTransform;
+    [HideInInspector] public Transform PlayerPosition => _playerTransform;
+    [SerializeField] private Transform _shotPoint;
+    [SerializeField] private Transform _moveAbilityTransform;
+    [SerializeField] private Transform _combatAbilityTransform;
     private LayerMask _playerMask;
     private Vector2 _moveDirection;
     private Vector2 _mousePosition;
 
-    [SerializeField]private float _moveSpeed;
-    [SerializeField]private LayerMask _layerMask;
+    [SerializeField] private float _moveSpeed;
+    [SerializeField] private LayerMask _layerMask;
     private MoveAbilityData _currentMoveAbility;
     private CombatAbilityData _currentCombatAbility;
 
-    [SerializeField]private float _health;
+
+    [SerializeField] private Animator _playerAniator;
+    [SerializeField] private float _health;
     private bool _isCanMove = true;
 
 
@@ -55,17 +59,17 @@ public class Player : MonoBehaviour
         AbilityStore.UpdateCombatAbility += initCombatAbility;
         AbilityStore.UpdateMoveAbility += iniMoveAbility;
         AbilityStore.PlayerLockMovment += lockMove;
- 
+
     }
 
-    private void OnDestroy() 
+    private void OnDestroy()
     {
         AbilityStore.UpdateCombatAbility -= initCombatAbility;
         AbilityStore.UpdateMoveAbility -= iniMoveAbility;
     }
 
 
-        private void OnEnable()
+    private void OnEnable()
     {
         _playerInput.Enable();
     }
@@ -75,13 +79,14 @@ public class Player : MonoBehaviour
         _playerInput.Disable();
     }
 
-    private void FixedUpdate() {
-        if(_isCanMove == true)
+    private void FixedUpdate()
+    {
+        if (_isCanMove == true)
         {
             _playerMove.Move();
             _playerMove.Rotate();
         }
-        
+
     }
 
     #endregion
@@ -89,22 +94,26 @@ public class Player : MonoBehaviour
     public void GetDamage(float damage)
     {
         _health -= damage;
-        if(_health <= 0){
+        UpdateHealthBar(_health);
+        
+        if (_health <= 0)
+        {
             _isCanMove = false;
             PlayerDying?.Invoke();
         }
     }
 
     #region init_abilities
-    private void initCombatAbility(CombatAbilityData newCombatAbility){
+    private void initCombatAbility(CombatAbilityData newCombatAbility)
+    {
         newCombatAbility.RenderCombatAbility(_combatAbilityTransform);
         _currentCombatAbility = newCombatAbility;
         _currentCombatAbility.updateCombatUI();
-        Debug.Log("Player");
-        
+
     }
 
-    private void iniMoveAbility(MoveAbilityData newMoveAbility){
+    private void iniMoveAbility(MoveAbilityData newMoveAbility)
+    {
         newMoveAbility.RenderMoveAbility(_moveAbilityTransform);
         _currentMoveAbility = newMoveAbility;
         _currentMoveAbility.updateMovetUI();
@@ -115,8 +124,9 @@ public class Player : MonoBehaviour
     #region  abilities
     private void castAttackAbility()
     {
-        if(_isCanCombatAbility == true)
+        if (_isCanCombatAbility == true)
             StartCoroutine(IEcombatAbility(_currentCombatAbility, _shotPoint));
+        _playerAniator.Play("Base Layer.Impact", 0, 0.25f);
     }
 
     private IEnumerator IEcombatAbility(CombatAbilityData ability, Transform shotPoint)
@@ -131,7 +141,7 @@ public class Player : MonoBehaviour
 
     private void castMoveAbility()
     {
-        if(_isCanMoveAbility == true)
+        if (_isCanMoveAbility == true)
             StartCoroutine(IEmoveAbility(_currentMoveAbility, _playerTransform));
     }
 
@@ -148,6 +158,6 @@ public class Player : MonoBehaviour
     #endregion
 
     private void lockMove(bool lockValue) => _isCanMove = lockValue;
-    
+
 }
-    
+

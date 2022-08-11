@@ -14,21 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Difficulty: Easely
   WaveList:
-  - Count: 10
+  - Count: 8
     Enemies:
     - {fileID: 3728275268360871155, guid: 81e15a7943105b340a7bf061ec78b157, type: 3}
-  - Count: 12
-    Enemies:
-    - {fileID: 3728275268360871155, guid: 81e15a7943105b340a7bf061ec78b157, type: 3}
-    - {fileID: 4240867723988390537, guid: 3ad1244c7a80f7b43b487698c8f091a1, type: 3}
-  - Count: 16
+  - Count: 8
     Enemies:
     - {fileID: 3728275268360871155, guid: 81e15a7943105b340a7bf061ec78b157, type: 3}
     - {fileID: 4240867723988390537, guid: 3ad1244c7a80f7b43b487698c8f091a1, type: 3}
-    - {fileID: 7700045325869565512, guid: 8e3f6108c01f0f14086ebdb472994aa1, type: 3}
-  - Count: 20
-    Enemies:
-    - {fileID: 3728275268360871155, guid: 81e15a7943105b340a7bf061ec78b157, type: 3}
-    - {fileID: 4240867723988390537, guid: 3ad1244c7a80f7b43b487698c8f091a1, type: 3}
-    - {fileID: 7700045325869565512, guid: 8e3f6108c01f0f14086ebdb472994aa1, type: 3}
-    - {fileID: 3863927517466685127, guid: 3cf923e0039cb3c48b96f61efd359403, type: 3}

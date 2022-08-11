@@ -82,7 +82,6 @@ public class Enemy : MonoBehaviour
     }
     public void GetDamage(float damage)
     {
-        Debug.Log(damage);
         _health -= damage;
         if (_health <= 0)
             dyingEnemy();

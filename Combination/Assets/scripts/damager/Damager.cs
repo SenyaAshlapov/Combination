@@ -33,10 +33,7 @@ public class Damager : MonoBehaviour
                 
                 if(_isExplosion == true)
                     
-                    explode();
-
-                Instantiate(_explosionParticle, transform.position, transform.rotation);
-                Destroy(this.gameObject);
+                    explode();               
             }
         }   
 
@@ -48,12 +45,13 @@ public class Damager : MonoBehaviour
 
                 if(_isExplosion == true)
                     
-                    explode();
-                    
-                Instantiate(_explosionParticle, transform.position, transform.rotation);
-                Destroy(this.gameObject);
+                    explode();              
             }
-        }      
+        } 
+        Instantiate(_explosionParticle, transform.position, transform.rotation);
+        Destroy(this.gameObject);   
+
+         
     }
 
     private void explode()

@@ -82,8 +82,6 @@ public class WaveSpawner : MonoBehaviour
 
         Vector3 randomSpawn = new Vector3(Random.Range(0, _spawnRange), 0, Random.Range(0, _spawnRange));
 
-        Debug.Log(randomSpawnPoint);
-
         Instantiate(
             _curentWaveData.WaveList[_waveID].Enemies[randomEnemy],
             _enemySpawnPoints[randomSpawnPoint].position + randomSpawn,
@@ -92,14 +90,23 @@ public class WaveSpawner : MonoBehaviour
 
     private void updateWave()
     {
-        StartCoroutine((IEupdateSpawner()));
+        _waveID += 1;
+        if(_waveID == _curentWaveData.WaveList.Count)
+        {
+            Debug.Log("finish game");
+        }
+        else
+        {
+             StartCoroutine((IEupdateSpawner()));
+        }
+       
     }
 
     private IEnumerator IEupdateSpawner()
     {
+
         ActivateTimer?.Invoke(_restTime);
         WaveEnd?.Invoke();
-        _waveID += 1;
 
         yield return new WaitForSeconds(_restTime);
 

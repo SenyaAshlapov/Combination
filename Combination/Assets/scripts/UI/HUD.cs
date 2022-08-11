@@ -29,7 +29,6 @@ public class HUD : MonoBehaviour
     private void updateShotCells(Sprite newIcon, Color32 newColor)
     {
         updateCell(_shotCell, _shotCellColored, newIcon, newColor);
-        Debug.Log("hud");
     }
 
     private void updateMoveCells(Sprite newIcon, Color32 newColor)
