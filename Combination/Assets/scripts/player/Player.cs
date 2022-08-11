@@ -58,7 +58,9 @@ public class Player : MonoBehaviour
 
         AbilityStore.UpdateCombatAbility += initCombatAbility;
         AbilityStore.UpdateMoveAbility += iniMoveAbility;
+
         AbilityStore.PlayerLockMovment += lockMove;
+        GameMenu.PlayerLockMovment += lockMove;
 
     }
 
@@ -66,6 +68,9 @@ public class Player : MonoBehaviour
     {
         AbilityStore.UpdateCombatAbility -= initCombatAbility;
         AbilityStore.UpdateMoveAbility -= iniMoveAbility;
+
+        AbilityStore.PlayerLockMovment -= lockMove;
+        GameMenu.PlayerLockMovment -= lockMove;
     }
 
 
@@ -93,14 +98,18 @@ public class Player : MonoBehaviour
 
     public void GetDamage(float damage)
     {
-        _health -= damage;
-        UpdateHealthBar(_health);
-        
-        if (_health <= 0)
+        if(_isCanMove == true)
         {
+            _health -= damage;
+            UpdateHealthBar(_health);
+        
+            if (_health <= 0)
+            {
             _isCanMove = false;
             PlayerDying?.Invoke();
+            }
         }
+        
     }
 
     #region init_abilities
@@ -124,7 +133,7 @@ public class Player : MonoBehaviour
     #region  abilities
     private void castAttackAbility()
     {
-        if (_isCanCombatAbility == true)
+        if (_isCanCombatAbility == true && _isCanMove == true)
             StartCoroutine(IEcombatAbility(_currentCombatAbility, _shotPoint));
         _playerAniator.Play("Base Layer.Impact", 0, 0.25f);
     }
@@ -141,7 +150,7 @@ public class Player : MonoBehaviour
 
     private void castMoveAbility()
     {
-        if (_isCanMoveAbility == true)
+        if (_isCanMoveAbility == true && _isCanMove == true)
             StartCoroutine(IEmoveAbility(_currentMoveAbility, _playerTransform));
     }
 

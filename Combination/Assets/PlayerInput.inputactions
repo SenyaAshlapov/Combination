@@ -49,6 +49,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "pause",
+                    "type": "Button",
+                    "id": "d08fed8c-3fd1-4878-951d-533b2444e6d7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -203,6 +212,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "mousePosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1d6aeb69-8a5d-4f56-b791-1c25abd4b268",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

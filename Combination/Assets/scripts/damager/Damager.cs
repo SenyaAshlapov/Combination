@@ -20,8 +20,8 @@ public class Damager : MonoBehaviour
     [SerializeField]private GameObject _destroyParticle;
     [SerializeField]private GameObject _explosionParticle;
 
-    private void FixedUpdate() {
-        _damagerRigidbody.velocity = _speed * transform.forward;
+    private void Update() {
+        _damagerRigidbody.velocity = _speed * transform.forward ;
     }
 
     private void OnTriggerEnter(Collider other)
