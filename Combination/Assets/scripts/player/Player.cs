@@ -8,35 +8,49 @@ public class Player : MonoBehaviour
     public delegate void playerFloatAction(float value);
     public static playerAction PlayerDying;
     public static playerFloatAction UpdateHealthBar;
-    [SerializeField] private MoveAbilityData _startMoveAbility;
-    [SerializeField] private CombatAbilityData _startCombatAbility;
 
-    private PlayerInput _playerInput;
+    [Header("Movment")]
+    [SerializeField] private PlayerMove _playerMove;
     [SerializeField] private Transform _playerTransform;
     [SerializeField] private Rigidbody _playerRigidbody;
     [HideInInspector] public Transform PlayerPosition => _playerTransform;
-    [SerializeField] private Transform _shotPoint;
+    [SerializeField] private LayerMask _layerMask;
     [SerializeField] private Transform _moveAbilityTransform;
-    [SerializeField] private Transform _combatAbilityTransform;
+
     private LayerMask _playerMask;
+    private bool _isCanMove = true;
+
     private Vector2 _moveDirection;
     private Vector2 _mousePosition;
 
-    [SerializeField] private LayerMask _layerMask;
     private MoveAbilityData _currentMoveAbility;
-    private CombatAbilityData _currentCombatAbility;
+    [SerializeField] private MoveAbilityData _startMoveAbility;
+    private bool _isCanMoveAbility = true;
 
+    private PlayerInput _playerInput;
+
+
+    [Space(10)]
+
+    [Header("Combat")]
+    [SerializeField] private Transform _shotPoint;
+    [SerializeField] private Transform _combatAbilityTransform;
+    private CombatAbilityData _currentCombatAbility;
+    [SerializeField] private CombatAbilityData _startCombatAbility;
+    [SerializeField] private float _health;
+    private bool _isCanCombatAbility = true;
+
+
+
+    [Space(10)]
+
+    [Header("Effectst")]
 
     [SerializeField] private Animator _playerAniator;
-    [SerializeField] private float _health;
-    private bool _isCanMove = true;
+    [SerializeField] private AudioSource _shotSound;
+    [SerializeField] private AudioSource _deadSound;
 
 
-
-    [SerializeField]private PlayerMove _playerMove;
-
-    private bool _isCanCombatAbility = true;
-    private bool _isCanMoveAbility = true;
 
     #region  unity_functions
     private void Awake()
@@ -99,18 +113,19 @@ public class Player : MonoBehaviour
 
     public void GetDamage(float damage)
     {
-        if(_isCanMove == true)
+        if (_isCanMove == true)
         {
             _health -= damage;
             UpdateHealthBar(_health);
-        
+
             if (_health <= 0)
             {
-            _isCanMove = false;
-            PlayerDying?.Invoke();
+                _deadSound.Play();
+                _isCanMove = false;
+                PlayerDying?.Invoke();
             }
         }
-        
+
     }
 
     #region init_abilities
@@ -136,8 +151,12 @@ public class Player : MonoBehaviour
     private void castAttackAbility()
     {
         if (_isCanCombatAbility == true && _isCanMove == true)
+        {
+            _shotSound.Play();
             StartCoroutine(IEcombatAbility(_currentCombatAbility, _shotPoint));
-        _playerAniator.Play("Base Layer.Impact", 0, 0.25f);
+            _playerAniator.Play("Base Layer.Impact", 0, 0.25f);
+        }
+
     }
 
     private IEnumerator IEcombatAbility(CombatAbilityData ability, Transform shotPoint)
@@ -152,8 +171,11 @@ public class Player : MonoBehaviour
 
     private void castMoveAbility()
     {
-        if (_isCanMoveAbility == true && _isCanMove == true)
+        if (_isCanMoveAbility == true)
+        {
             StartCoroutine(IEmoveAbility(_currentMoveAbility, _playerTransform, _playerRigidbody));
+        }
+
     }
 
     private IEnumerator IEmoveAbility(MoveAbilityData ability, Transform playerTransform, Rigidbody playerRigidbody)

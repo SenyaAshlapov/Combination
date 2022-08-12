@@ -8,6 +8,8 @@ public class GameMenu : MonoBehaviour
     private PlayerInput _playerInput;
 
     [SerializeField] private GameObject _menu;
+    [SerializeField] private GameObject _hud;
+    [SerializeField] private GameObject _gamePlayUI;
 
     [SerializeField] private GameObject _options;
 
@@ -37,6 +39,8 @@ public class GameMenu : MonoBehaviour
         PlayerLockMovment?.Invoke(false);
 
         _menu.SetActive(true);
+        _hud.SetActive(false);
+        _gamePlayUI.SetActive(false);
         Time.timeScale = 0.03f;
     }
 
@@ -45,7 +49,9 @@ public class GameMenu : MonoBehaviour
         Time.timeScale = 1;
         PlayerLockMovment?.Invoke(true);
 
+        _hud.SetActive(true);
         _menu.SetActive(false);
+        _gamePlayUI.SetActive(true);        
     }
 
     public void RestartGame() 

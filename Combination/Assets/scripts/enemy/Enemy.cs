@@ -26,6 +26,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float _shotTime;
     [SerializeField] private EnemyAttack _enemyAttack;
 
+    [Header("Effectst")]
+
+    [SerializeField] private AudioSource _deadSound;
+
     #endregion
 
     #region states
@@ -84,7 +88,11 @@ public class Enemy : MonoBehaviour
     {
         _health -= damage;
         if (_health <= 0)
+        {
+            _deadSound.Play();
             dyingEnemy();
+        }
+
     }
 
     private void dyingEnemy()
@@ -143,6 +151,7 @@ public class Enemy : MonoBehaviour
 
     private void destroyEnemy()
     {
+
         Instantiate(_deadPyrticle, transform.position, transform.rotation);
         Destroy(this.gameObject);
     }

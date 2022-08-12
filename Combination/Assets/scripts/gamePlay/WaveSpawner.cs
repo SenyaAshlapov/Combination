@@ -5,7 +5,10 @@ using UnityEngine;
 public class WaveSpawner : MonoBehaviour
 {
     public delegate void WaveFloatAction(float value);
+    public delegate void WaveIntAction(int value);
     public static WaveFloatAction ActivateTimer;
+    public static WaveIntAction UpdateWaveScore;
+    public static WaveIntAction UpdateCurrentWaveScore;
     public delegate void WaveAction();
     public static WaveAction WaveStart;
     public static WaveAction WaveEnd;
@@ -48,6 +51,9 @@ public class WaveSpawner : MonoBehaviour
     {
         _enemyPool = _curentWaveData.WaveList[_waveID].Count;
 
+        UpdateCurrentWaveScore?.Invoke(_score);
+        UpdateWaveScore?.Invoke(_enemyPool);
+
         foreach (Transform point in _enemySpawnPoints)
         {
 
@@ -59,9 +65,10 @@ public class WaveSpawner : MonoBehaviour
     private void removeEnemy()
     {
         _score += 1;
-
+        UpdateCurrentWaveScore(_score);
 
         if (_score <= (_enemyPool - _enemySpawnPoints.Count))
+
             spawnNewEnemy();
 
         if (_score == _enemyPool)

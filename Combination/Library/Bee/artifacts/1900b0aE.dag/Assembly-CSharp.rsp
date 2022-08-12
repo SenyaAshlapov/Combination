@@ -399,6 +399,7 @@
 "Assets/scripts/UI/HUD.cs"
 "Assets/scripts/UI/Options.cs"
 "Assets/scripts/UI/RestTimer.cs"
+"Assets/scripts/UI/WaveScore.cs"
 "Assets/TutorialInfo/Scripts/Readme.cs"
 -langversion:9.0
 

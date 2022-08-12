@@ -16,7 +16,7 @@ MonoBehaviour:
   EnginePrefab: {fileID: 3482658075177937584, guid: 6a76087bf94d6d648b82c34f58b35c17,
     type: 3}
   Speed: 12
-  Icon: {fileID: 21300000, guid: ea3cf9b87cca38147ae1b24f9ea0ed18, type: 3}
+  Icon: {fileID: 21300000, guid: ed61274955ba2a041af7efe6892104e7, type: 3}
   Color:
     serializedVersion: 2
     rgba: 4294927665

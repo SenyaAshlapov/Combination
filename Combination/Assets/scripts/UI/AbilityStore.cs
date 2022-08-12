@@ -37,6 +37,13 @@ public class AbilityStore : MonoBehaviour
         WaveSpawner.WaveEnd += generateAbilitis;
         WaveSpawner.WaveStart += hideAll;
     }
+
+    private void OnDestroy() {
+        WaveSpawner.WaveEnd -= generateAbilitis;
+        WaveSpawner.WaveStart -= hideAll;
+    
+    }
+
     private void generateAbilitis()
     {
         PlayerLockMovment?.Invoke(false);
