@@ -27,6 +27,8 @@ public class PlayerMove : MonoBehaviour
 
         _mainCamera = Camera.main;
     }
+
+    public void SetSpeed(float newSpeed) => _moveSpeed = newSpeed;
     public void Move()
     {
         float moveSpeed = _moveSpeed * Time.deltaTime;

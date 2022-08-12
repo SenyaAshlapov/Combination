@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
 
     private PlayerInput _playerInput;
     [SerializeField] private Transform _playerTransform;
+    [SerializeField] private Rigidbody _playerRigidbody;
     [HideInInspector] public Transform PlayerPosition => _playerTransform;
     [SerializeField] private Transform _shotPoint;
     [SerializeField] private Transform _moveAbilityTransform;
@@ -21,7 +22,6 @@ public class Player : MonoBehaviour
     private Vector2 _moveDirection;
     private Vector2 _mousePosition;
 
-    [SerializeField] private float _moveSpeed;
     [SerializeField] private LayerMask _layerMask;
     private MoveAbilityData _currentMoveAbility;
     private CombatAbilityData _currentCombatAbility;
@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
             _playerInput,
             _playerTransform,
             _layerMask,
-            _moveSpeed);
+            0);
 
         initCombatAbility(_startCombatAbility);
         iniMoveAbility(_startMoveAbility);
@@ -126,6 +126,7 @@ public class Player : MonoBehaviour
         newMoveAbility.RenderMoveAbility(_moveAbilityTransform);
         _currentMoveAbility = newMoveAbility;
         _currentMoveAbility.updateMovetUI();
+        _playerMove.SetSpeed(newMoveAbility.Speed);
     }
 
     #endregion
@@ -151,13 +152,13 @@ public class Player : MonoBehaviour
     private void castMoveAbility()
     {
         if (_isCanMoveAbility == true && _isCanMove == true)
-            StartCoroutine(IEmoveAbility(_currentMoveAbility, _playerTransform));
+            StartCoroutine(IEmoveAbility(_currentMoveAbility, _playerTransform, _playerRigidbody));
     }
 
-    private IEnumerator IEmoveAbility(MoveAbilityData ability, Transform playerTransform)
+    private IEnumerator IEmoveAbility(MoveAbilityData ability, Transform playerTransform, Rigidbody playerRigidbody)
     {
         _isCanMoveAbility = false;
-        ability.ActivateMoveAbility(playerTransform);
+        ability.ActivateMoveAbility(playerTransform, playerRigidbody);
         yield return new WaitForSeconds(ability.CoolDown);
 
         _isCanMoveAbility = true;

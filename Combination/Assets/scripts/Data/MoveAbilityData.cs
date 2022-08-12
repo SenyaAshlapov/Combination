@@ -23,7 +23,7 @@ public class MoveAbilityData : ScriptableObject
         Instantiate(EnginePrefab, renderPosition);
     }
 
-    public virtual void ActivateMoveAbility(Transform playerTransform)
+    public virtual void ActivateMoveAbility(Transform playerTransform, Rigidbody playerRigidbody)
     {
 
     }

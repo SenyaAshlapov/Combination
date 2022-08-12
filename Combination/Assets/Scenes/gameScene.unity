@@ -10959,14 +10959,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2caa0ea68f3c0cd41ad9d5afbba7739b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startMoveAbility: {fileID: 11400000, guid: e26ae0049f1966c41aa1398a3a21c332, type: 2}
+  _startMoveAbility: {fileID: 11400000, guid: 2c8e75ac261a97c4990d5e1ebff120ec, type: 2}
   _startCombatAbility: {fileID: 11400000, guid: 35b54b04294bb82438b4c209206dc70c,
     type: 2}
   _playerTransform: {fileID: 4188226290604587409}
+  _playerRigidbody: {fileID: 4188226290604587412}
   _shotPoint: {fileID: 2025429888}
   _moveAbilityTransform: {fileID: 133882896}
   _combatAbilityTransform: {fileID: 2008091986}
-  _moveSpeed: 10
   _layerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -10981,7 +10981,7 @@ Rigidbody:
   m_GameObject: {fileID: 3554537695764046635}
   serializedVersion: 2
   m_Mass: 25
-  m_Drag: 6
+  m_Drag: 10
   m_AngularDrag: 6
   m_UseGravity: 0
   m_IsKinematic: 0
