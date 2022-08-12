@@ -76,6 +76,8 @@ public class Player : MonoBehaviour
 
         AbilityStore.PlayerLockMovment += lockMove;
         GameMenu.PlayerLockMovment += lockMove;
+        WaveSpawner.GameComplete += levelComplete;
+
 
     }
 
@@ -86,6 +88,7 @@ public class Player : MonoBehaviour
 
         AbilityStore.PlayerLockMovment -= lockMove;
         GameMenu.PlayerLockMovment -= lockMove;
+        WaveSpawner.GameComplete -= levelComplete;
     }
 
 
@@ -189,6 +192,10 @@ public class Player : MonoBehaviour
     }
 
     #endregion
+
+    private void levelComplete(){
+        _isCanMove = false;
+    }
 
     private void lockMove(bool lockValue) => _isCanMove = lockValue;
 

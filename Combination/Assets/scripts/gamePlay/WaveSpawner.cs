@@ -10,6 +10,7 @@ public class WaveSpawner : MonoBehaviour
     public static WaveIntAction UpdateWaveScore;
     public static WaveIntAction UpdateCurrentWaveScore;
     public delegate void WaveAction();
+    public static WaveAction GameComplete;
     public static WaveAction WaveStart;
     public static WaveAction WaveEnd;
     [SerializeField] private WaveSpawnData _curentWaveData;
@@ -114,6 +115,8 @@ public class WaveSpawner : MonoBehaviour
         if(_waveID == _curentWaveData.WaveList.Count)
         {
             Debug.Log("finish game");
+            GameComplete?.Invoke();
+            
         }
         else
         {

@@ -384,6 +384,7 @@
 "Assets/scripts/enemy/states/enemyIdleState.cs"
 "Assets/scripts/gamePlay/BootLoader.cs"
 "Assets/scripts/gamePlay/EnvourmentSpawner.cs"
+"Assets/scripts/gamePlay/LevelFinisher.cs"
 "Assets/scripts/gamePlay/SavesManager.cs"
 "Assets/scripts/gamePlay/WaveSpawner.cs"
 "Assets/scripts/MoveAbilities/MoveAbilityAcceleration.cs"
