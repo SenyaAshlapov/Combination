@@ -25,7 +25,7 @@ public class CombatAbilityData : ScriptableObject
         Instantiate(WingsPrefab, renderPosition);
     }
 
-    public virtual void ActivateCombatAbility(Transform shotTransform)
+    public void ActivateCombatAbility(Transform shotTransform)
     {
         Instantiate(DamagerPrefab, shotTransform.position, shotTransform.rotation);
     }

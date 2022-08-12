@@ -19,13 +19,16 @@ public class HUD : MonoBehaviour
     {
         CombatAbilityData.UpdateCombatAbilityUI += updateShotCells;
         MoveAbilityData.UpdateMoveAbilityUI += updateMoveCells;
+        HealthData.UpdateHealthAbilityUI += updateHealthCells;
     }
 
     private void OnDestroy()
     {
         CombatAbilityData.UpdateCombatAbilityUI -= updateShotCells;
         MoveAbilityData.UpdateMoveAbilityUI -= updateMoveCells;
+        HealthData.UpdateHealthAbilityUI -= updateHealthCells;
     }
+
     private void updateShotCells(Sprite newIcon, Color32 newColor)
     {
         updateCell(_shotCell, _shotCellColored, newIcon, newColor);

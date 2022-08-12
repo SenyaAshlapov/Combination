@@ -11,9 +11,7 @@ public class Options : MonoBehaviour
     [SerializeField]private Slider _effectsSlider;
     void Awake()
     {
-        loadOptions();
-
-        
+        loadOptions();      
     }
 
     private void Update() 
@@ -28,6 +26,10 @@ public class Options : MonoBehaviour
         if(enable) _mixer.audioMixer.SetFloat("MasterVolume",0);
         else  _mixer.audioMixer.SetFloat("MasterVolume",-80);
        
+    }
+
+    public void ScreenTogle(bool enable){
+        Screen.fullScreen = enable;
     }
 
 
@@ -63,6 +65,7 @@ public class Options : MonoBehaviour
             _masterSlider.value = PlayerPrefs.GetFloat("MasterValue");
             _musicSlider.value = PlayerPrefs.GetFloat("MusicVolume");
             _effectsSlider.value = PlayerPrefs.GetFloat("EffectsVolume");
+            
         }
         else
         {

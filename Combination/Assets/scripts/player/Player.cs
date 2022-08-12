@@ -50,7 +50,9 @@ public class Player : MonoBehaviour
     [SerializeField] private AudioSource _shotSound;
     [SerializeField] private AudioSource _deadSound;
 
+    [Space(10)]
 
+    private HealthData _currentHealth;
 
     #region  unity_functions
     private void Awake()
@@ -68,6 +70,7 @@ public class Player : MonoBehaviour
 
         _playerInput.Player.shot.performed += context => castAttackAbility();
         _playerInput.Player.moveAbility.performed += context => castMoveAbility();
+        _playerInput.Player.health.performed += context => UseHealth();
 
         PlayerSingoltone.SingoltonePlayer.SetPlayer(this);
 
@@ -128,10 +131,26 @@ public class Player : MonoBehaviour
                 PlayerDying?.Invoke();
             }
         }
+    }
+
+    public void UseHealth()
+    {
+        if(_currentHealth != null){
+            _health += _currentHealth.UseHealth();
+            UpdateHealthBar(_health);
+            if(_health > 100) _health = 100;
+
+            _currentHealth = null;
+        }
 
     }
 
     #region init_abilities
+
+    public void InitHealth(HealthData newHealth){
+        _currentHealth = newHealth;
+        _currentHealth.InitHealth();
+    }
     private void initCombatAbility(CombatAbilityData newCombatAbility)
     {
         newCombatAbility.RenderCombatAbility(_combatAbilityTransform);
