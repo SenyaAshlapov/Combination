@@ -16,8 +16,6 @@ public class CombatAbilityData : ScriptableObject
     [TextArea]
     public string Description;
 
-    private bool _isCanShot = true;
-
     public void RenderCombatAbility(Transform renderPosition)
     {
         foreach (Transform child in renderPosition)

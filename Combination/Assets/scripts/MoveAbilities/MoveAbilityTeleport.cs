@@ -8,11 +8,9 @@ public class MoveAbilityTeleport : MoveAbilityData
 {
     public float TeleportRange;
 
-    public override void ActivateMoveAbility(Transform playerTransform, Rigidbody playerRigidbody)
+    public override void ActivateMoveAbility(PlayerMove playerMove)
     {
-        Vector3 randomPoint = new Vector3(Random.Range(-TeleportRange, TeleportRange),0,Random.Range(-TeleportRange, TeleportRange));
-
-        playerTransform.position += randomPoint;
+        playerMove.Teleport(TeleportRange);
         
     }
 }

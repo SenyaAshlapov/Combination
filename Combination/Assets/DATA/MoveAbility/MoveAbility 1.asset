@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd5748d4790476c4e9d3cbb4b5aeaa34, type: 3}
+  m_Name: MoveAbility 1
+  m_EditorClassIdentifier: 
+  CoolDown: 1
+  EnginePrefab: {fileID: 3482658075177937584, guid: 6a76087bf94d6d648b82c34f58b35c17,
+    type: 3}
+  Speed: 12
+  Icon: {fileID: 21300000, guid: ea3cf9b87cca38147ae1b24f9ea0ed18, type: 3}
+  Color:
+    serializedVersion: 2
+    rgba: 4294927665
+  Description: Teleports a short distance
+  TeleportRange: 10

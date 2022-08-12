@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
 
 
 
-    private PlayerMove _playerMove = new PlayerMove();
+    [SerializeField]private PlayerMove _playerMove;
 
     private bool _isCanCombatAbility = true;
     private bool _isCanMoveAbility = true;
@@ -45,6 +45,7 @@ public class Player : MonoBehaviour
         _playerMove.InitPlayerMove(
             _playerInput,
             _playerTransform,
+            _playerRigidbody,
             _layerMask,
             0);
 
@@ -158,7 +159,7 @@ public class Player : MonoBehaviour
     private IEnumerator IEmoveAbility(MoveAbilityData ability, Transform playerTransform, Rigidbody playerRigidbody)
     {
         _isCanMoveAbility = false;
-        ability.ActivateMoveAbility(playerTransform, playerRigidbody);
+        ability.ActivateMoveAbility(_playerMove);
         yield return new WaitForSeconds(ability.CoolDown);
 
         _isCanMoveAbility = true;

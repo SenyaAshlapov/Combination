@@ -386,6 +386,7 @@
 "Assets/scripts/gamePlay/EnvourmentSpawner.cs"
 "Assets/scripts/gamePlay/SavesManager.cs"
 "Assets/scripts/gamePlay/WaveSpawner.cs"
+"Assets/scripts/MoveAbilities/MoveAbilityAcceleration.cs"
 "Assets/scripts/MoveAbilities/MoveAbilityDash.cs"
 "Assets/scripts/MoveAbilities/MoveAbilityTeleport.cs"
 "Assets/scripts/player/Player.cs"

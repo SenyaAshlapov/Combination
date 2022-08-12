@@ -6,12 +6,9 @@ using UnityEngine;
 
 public class MoveAbilityDash : MoveAbilityData
 {
-    
     public float DashForce;
-    public override void ActivateMoveAbility(Transform playerTransform, Rigidbody playerRigidbody)
+    public override void ActivateMoveAbility(PlayerMove playerMove)
     {
-        Vector3 rotationVector = playerTransform.forward * DashForce;
-        Debug.Log("cast");
-        playerRigidbody.AddForce(rotationVector, ForceMode.Impulse);
+        playerMove.Dash(DashForce);
     }
 }
