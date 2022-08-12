@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12ac646b4e6dad9478d7eba5fb0d7058, type: 3}
   m_Name: CombatAbilityData 2
   m_EditorClassIdentifier: 
-  CoolDown: 0.4
-  WingsPrefab: {fileID: 646451680660721529, guid: 213ddf06104564249b3650e4a533e366,
+  CoolDown: 0.45
+  WingsPrefab: {fileID: 9184139589409201325, guid: 1bf85e2c636ab23408b767e11cb9bd21,
     type: 3}
-  DamagerPrefab: {fileID: 4434871445889909555, guid: 91f732fe50cb3be42b748fc829cdcdbd,
+  DamagerPrefab: {fileID: 186111565660865583, guid: 479048b5c3bfb1a43a4ac8053f4eed3b,
     type: 3}
-  Icon: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  Icon: {fileID: 21300000, guid: 68205b32e6f627646a2d89f015988914, type: 3}
   Color:
     serializedVersion: 2
-    rgba: 4294901846
-  Description: 7kryulkyi;ltil
+    rgba: 4294912030
+  Description: Fires three projectiles in different directions

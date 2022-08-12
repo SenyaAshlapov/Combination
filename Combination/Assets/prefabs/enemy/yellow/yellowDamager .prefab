@@ -68,6 +68,8 @@ MonoBehaviour:
   _isExplosion: 0
   _explosionForce: 0
   _explosionRadius: 0
+  _destroyParticle: {fileID: 1667076525750175636, guid: 4b61369ef6ce58f409ea9eb4c88d94ed,
+    type: 3}
   _explosionParticle: {fileID: 1667076525750175636, guid: 4b61369ef6ce58f409ea9eb4c88d94ed,
     type: 3}
 --- !u!54 &4434871445889909552

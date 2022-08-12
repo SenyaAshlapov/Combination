@@ -436,7 +436,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &113726217
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4260,8 +4260,10 @@ MonoBehaviour:
   _combatAbilityList:
   - {fileID: 11400000, guid: fdde5440b2bc2e04590b8f8cebe854bf, type: 2}
   - {fileID: 11400000, guid: 24d4cc9c7c83186468021635ac699a45, type: 2}
-  - {fileID: 11400000, guid: efd5a9adaa1a6c24d83ab01dd9c2a72a, type: 2}
-  - {fileID: 11400000, guid: 33367556707302d438f79619268c8ae7, type: 2}
+  - {fileID: 11400000, guid: 4d40ec15831f43f4886c9a27046651e9, type: 2}
+  - {fileID: 11400000, guid: 1e82283802e8937499bbe94b86f396d2, type: 2}
+  - {fileID: 11400000, guid: 35b54b04294bb82438b4c209206dc70c, type: 2}
+  - {fileID: 11400000, guid: 6ca33e4b31f84c44db058e2ded59f8e1, type: 2}
   _abilityCellCombat: {fileID: 255448816}
   _abilityCellMove: {fileID: 839030562}
   _abilityCellRandom: {fileID: 2145391101}
@@ -10958,7 +10960,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startMoveAbility: {fileID: 11400000, guid: e26ae0049f1966c41aa1398a3a21c332, type: 2}
-  _startCombatAbility: {fileID: 11400000, guid: 33367556707302d438f79619268c8ae7,
+  _startCombatAbility: {fileID: 11400000, guid: 35b54b04294bb82438b4c209206dc70c,
     type: 2}
   _playerTransform: {fileID: 4188226290604587409}
   _shotPoint: {fileID: 2025429888}

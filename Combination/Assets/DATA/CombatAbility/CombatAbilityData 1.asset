@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12ac646b4e6dad9478d7eba5fb0d7058, type: 3}
   m_Name: CombatAbilityData 1
   m_EditorClassIdentifier: 
-  CoolDown: 0.2
-  WingsPrefab: {fileID: 1962005092329081053, guid: 13896cd00ed1b64468b562e4eb76e23c,
+  CoolDown: 0.4
+  WingsPrefab: {fileID: 7374680248591196093, guid: f64a02125cccce14cbc6d8590aceddbb,
     type: 3}
-  DamagerPrefab: {fileID: 4434871445889909555, guid: 91f732fe50cb3be42b748fc829cdcdbd,
+  DamagerPrefab: {fileID: 5549459604042823065, guid: 13777b3f17270264aa1bdef9f92a7b18,
     type: 3}
-  Icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  Icon: {fileID: 21300000, guid: 6497139362153094fb1d03a18f56bdd4, type: 3}
   Color:
     serializedVersion: 2
-    rgba: 4289881809
-  Description: rhqhqhqenqe
+    rgba: 4280167935
+  Description: Fires two parallel projectiles
