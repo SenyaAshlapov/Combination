@@ -1,0 +1,57 @@
+<linker>
+	<assembly fullname="Assembly-CSharp" ignoreIfMissing="1">
+		<type fullname="AbilityStore">
+			<method name="SelectNewCombatAbility"/>
+			<method name="SelectNewMoveAbility"/>
+			<method name="SelectNewRandomAbility"/>
+		</type>
+		<type fullname="BootLoader">
+			<method name="loadLevelWitDifficulty"/>
+			<method name="loadLevelWitDifficulty"/>
+			<method name="loadLevelWitDifficulty"/>
+		</type>
+		<type fullname="GameMenu">
+			<method name="ContinueGame"/>
+			<method name="LeaveGame"/>
+			<method name="RestartGame"/>
+			<method name="ShowOptions"/>
+		</type>
+		<type fullname="LevelFinisher">
+			<method name="LeaveLevel"/>
+			<method name="RestartGame"/>
+			<method name="RestartGame"/>
+		</type>
+		<type fullname="MainMenu">
+			<method name="Exit"/>
+			<method name="ShowOptions"/>
+			<method name="StatGame"/>
+		</type>
+		<type fullname="Options">
+			<method name="SaveOptions"/>
+			<method name="SaveOptions"/>
+			<method name="ScreenTogle"/>
+			<method name="ScreenTogle"/>
+			<method name="SoundTogle"/>
+			<method name="SoundTogle"/>
+		</type>
+	</assembly>
+	<assembly fullname="Unity.RenderPipelines.Core.Runtime" ignoreIfMissing="1">
+		<type fullname="UnityEngine.Rendering.UI.DebugUIHandlerIntField">
+			<method name="OnDecrement"/>
+			<method name="OnDecrement"/>
+			<method name="OnIncrement"/>
+			<method name="OnIncrement"/>
+		</type>
+		<type fullname="UnityEngine.Rendering.UI.DebugUIHandlerPanel">
+			<method name="OnScrollbarClicked"/>
+			<method name="OnScrollbarClicked"/>
+			<method name="ResetDebugManager"/>
+		</type>
+		<type fullname="UnityEngine.Rendering.UI.DebugUIHandlerUIntField">
+			<method name="OnDecrement"/>
+			<method name="OnDecrement"/>
+			<method name="OnIncrement"/>
+			<method name="OnIncrement"/>
+		</type>
+	</assembly>
+</linker>
